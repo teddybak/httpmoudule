@@ -12,11 +12,23 @@ export class CursosService {
   base_url = environment.base_url;
   constructor(private http: HttpClient) {}
 
-  getCuros() {
+  getCursos() {
     return this.http.get<Curso[]>(`${this.base_url}/curso`).pipe(tap());
   }
 
   addCurso(curso: Curso) {
     return this.http.post(`${this.base_url}/curso`, curso);
+  }
+
+  getCurso(id: number) {
+    return this.http.get<Curso>(`${this.base_url}/curso/${id}`).pipe(tap());
+  }
+
+  patchCurso(curso: Curso, id: number) {
+    return this.http.put(`${this.base_url}/curso/${id}`, curso);
+  }
+
+  delCurso(id: number) {
+    return this.http.delete(`${this.base_url}/curso/${id}`).pipe(tap());
   }
 }

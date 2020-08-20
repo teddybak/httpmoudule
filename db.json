@@ -2,31 +2,7 @@
   "curso": [
     {
       "id": 1,
-      "title": "Angular"
-    },
-    {
-      "id": 3,
-      "title": "Java"
-    },
-    {
-      "id": 4,
-      "title": "php"
-    },
-    {
-      "id": 5,
-      "title": "mmmm"
-    },
-    {
-      "id": 6,
-      "title": "Laravel"
-    },
-    {
-      "id": 7,
-      "title": "Laravel"
-    },
-    {
-      "id": 2,
-      "title": "Laravel"
+      "title": "Java EE Second edition"
     }
   ]
 }

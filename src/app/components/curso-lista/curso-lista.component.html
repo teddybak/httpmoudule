@@ -12,8 +12,17 @@
       <th scope="row">{{ item.id }}</th>
       <td>{{ item.title }}</td>
       <td>
-        <button class="btn btn-warning">Actualizar</button
-        ><button class="btn btn-danger ml-2">Borrar</button>
+        <a
+          class="btn btn-warning"
+          [routerLink]="['/cursos', item.id, 'editar']"
+        >
+          Actualizar</a
+        ><button
+          class="btn btn-danger ml-2"
+          [routerLink]="['/cursos', item.id, 'borrar']"
+        >
+          Borrar
+        </button>
       </td>
     </tr>
   </tbody>

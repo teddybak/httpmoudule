@@ -1,12 +1,11 @@
 <h1>Crear nuevos cursos</h1>
-<form #myForm="ngForm" (ngSubmit)="procesar(myForm)" class="mt-4">
+<form #myForm="ngForm" (ngSubmit)="procesar(myForm.value)" class="mt-4">
   <div class="form-group">
     <input
       type="text"
       class="form-control"
       name="title"
-      ngModel
-      #title="ngModel"
+      [(ngModel)]="data.title"
     />
   </div>
 
@@ -14,3 +13,5 @@
     <button class="btn btn-primary">Enviar</button>
   </div>
 </form>
+
+{{ data.id }}
