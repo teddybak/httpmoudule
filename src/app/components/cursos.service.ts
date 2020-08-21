@@ -1,4 +1,4 @@
-import { tap } from 'rxjs/operators';
+import { tap, delay } from 'rxjs/operators';
 import { Curso } from './../interfaces/curso';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -13,7 +13,11 @@ export class CursosService {
   constructor(private http: HttpClient) {}
 
   getCursos() {
-    return this.http.get<Curso[]>(`${this.base_url}/curso`).pipe(tap());
+    return this.http.get<Curso[]>(`${this.base_url}/curso`)
+    .pipe(
+      delay(2000),
+      tap()      
+    );
   }
 
   addCurso(curso: Curso) {
