@@ -1,17 +1,31 @@
-<h1>Cursos</h1>
+<div class="d-flex justify-content-between mt-3">
+  <div>
+    <span class="display-4">Cursos</span>
+  </div>
+  <div>
+    <a
+      class="btn btn-primary"
+      [routerLink]="['/nuevo']"
+      data-target="#myModal"
+      data-toggle="modal"
+      >Nuevo Curso</a
+    >
+  </div>
+</div>
+
 <table class="table" *ngIf="cursos$ | async as cursos; else loading">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Curso</th>
-      <th scope="col">Accion</th>
+      <th scope="col" class="float-right">Accion</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of cursos  ">
+    <tr *ngFor="let item of cursos">
       <th scope="row">{{ item.id }}</th>
       <td>{{ item.title }}</td>
-      <td>
+      <td class="float-right">
         <a
           class="btn btn-warning"
           [routerLink]="['/cursos', item.id, 'editar']"
@@ -29,8 +43,13 @@
 </table>
 
 <ng-template #loading>
-  <div class="center">
-    <img src="/assets/img/loading.gif">
+  <div *ngIf="error$ | async; else loadingNoError">
+    {{ mensaje_error_carga }}
   </div>
- 
+
+  <ng-template #loadingNoError>
+    <div class="center">
+      <img src="/assets/img/loading.gif" />
+    </div>
+  </ng-template>
 </ng-template>

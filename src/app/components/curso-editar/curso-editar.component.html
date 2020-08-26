@@ -1,11 +1,12 @@
 <h1>Crear nuevos cursos</h1>
 <form #myForm="ngForm" (ngSubmit)="procesar(myForm.value)" class="mt-4">
-  <div class="form-group">
+  <div class="form-group" *ngIf="data$ | async as da">
     <input
       type="text"
       class="form-control"
       name="title"
-      [(ngModel)]="data.title"
+      value="{{ da.title }}"
+      [(ngModel)]="da.title"
     />
   </div>
 
@@ -13,5 +14,3 @@
     <button class="btn btn-primary">Enviar</button>
   </div>
 </form>
-
-{{ data.id }}

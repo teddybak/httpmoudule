@@ -13,6 +13,8 @@ import { CursoBorrarComponent } from './components/curso-borrar/curso-borrar.com
 import { CursosComponent } from './components/cursos/cursos.component';
 import { CursoEditarComponent } from './components/curso-editar/curso-editar.component';
 import { CursoDetallesComponent } from './components/curso-detalles/curso-detalles.component';
+import { SharedModule } from './shared/shared.module';
+import { ModalModule, BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,15 @@ import { CursoDetallesComponent } from './components/curso-detalles/curso-detall
     CursoEditarComponent,
     CursoDetallesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    SharedModule,
+    ModalModule.forRoot(),
+  ],
+  providers: [BsModalRef],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
